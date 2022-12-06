@@ -1,0 +1,26 @@
+<div>
+  <mat-form-field class="example-full-width">
+    <mat-label>Search your Brand </mat-label>
+    <input matInput [(ngModel)]="search" />
+  </mat-form-field>
+  <mat-grid-list cols="4" rowHeight="50px">
+    <mat-grid-tile
+      *ngFor="let beer of beers | filter : search"
+      [colspan]="2"
+      [rowspan]="2"
+      style="background-color: #d7874a"
+      (click)="openDialog(beer)"
+    >
+      <div>
+        <div>
+          <h1>
+            <b>{{ beer.name }}</b>
+          </h1>
+        </div>
+        <p>{{ beer.tagline }}</p>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <mat-divider></mat-divider>
+</div>
